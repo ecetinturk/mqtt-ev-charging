@@ -39,15 +39,15 @@ def run():
 
 def run_test():
 
-    traci.vehicle.setParameter("v_0", "device.battery.maximumBatteryCapacity", "100")
-    traci.vehicle.setParameter("v_1", "device.battery.maximumBatteryCapacity", "100")
-    traci.vehicle.setParameter("v_2", "device.battery.maximumBatteryCapacity", "100")
-    traci.vehicle.setParameter("v_3", "device.battery.maximumBatteryCapacity", "100")
+    traci.vehicle.setParameter("v_0", "device.battery.maximumBatteryCapacity", "1000")
+    traci.vehicle.setParameter("v_1", "device.battery.maximumBatteryCapacity", "1000")
+    traci.vehicle.setParameter("v_2", "device.battery.maximumBatteryCapacity", "1000")
+    traci.vehicle.setParameter("v_3", "device.battery.maximumBatteryCapacity", "1000")
 
-    traci.vehicle.setParameter("v_0", "device.battery.actualBatteryCapacity", "100")
-    traci.vehicle.setParameter("v_1", "device.battery.actualBatteryCapacity", "100")
-    traci.vehicle.setParameter("v_2", "device.battery.actualBatteryCapacity", "100")
-    traci.vehicle.setParameter("v_3", "device.battery.actualBatteryCapacity", "100")
+    traci.vehicle.setParameter("v_0", "device.battery.actualBatteryCapacity", "1000")
+    traci.vehicle.setParameter("v_1", "device.battery.actualBatteryCapacity", "1000")
+    traci.vehicle.setParameter("v_2", "device.battery.actualBatteryCapacity", "1000")
+    traci.vehicle.setParameter("v_3", "device.battery.actualBatteryCapacity", "1000")
 
     while traci.simulation.getMinExpectedNumber() > 0:
         traci.simulationStep()
