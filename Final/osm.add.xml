@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2023-05-16 21:04:38 by Eclipse SUMO netedit Version 1.16.0
+<!-- generated on 2023-05-18 20:20:47 by Eclipse SUMO netedit Version 1.16.0
 -->
 
 <additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
     <!-- StoppingPlaces -->
-    <chargingStation id="cs_0" lane="-368620842#10_0" startPos="49.75" endPos="59.75"/>
-    <chargingStation id="cs_1" lane="-212712097#4_0" startPos="14.34" endPos="24.34"/>
-    <chargingStation id="cs_2" lane="212712097#4_0" startPos="23.56" endPos="33.56"/>
-    <chargingStation id="cs_3" lane="369625682#1_1" startPos="42.77" endPos="52.77"/>
-    <chargingStation id="cs_4" lane="368620842#10_0" startPos="52.25" endPos="62.25"/>
-    <chargingStation id="cs_5" lane="-668817633_0" startPos="81.30" endPos="91.30"/>
-    <chargingStation id="cs_6" lane="369625682#1_0" startPos="40.56" endPos="50.56"/>
-    <chargingStation id="cs_7" lane="668817633_0" startPos="69.65" endPos="79.65"/>
+    <chargingStation id="cs_0" lane="E20_0" startPos="8.11" endPos="18.11"/>
+    <chargingStation id="cs_1" lane="E43_0" startPos="12.60" endPos="22.60"/>
+    <chargingStation id="cs_2" lane="E39_0" startPos="12.87" endPos="22.87"/>
+    <chargingStation id="cs_3" lane="E46_0" startPos="8.56" endPos="18.56"/>
+    <chargingStation id="cs_4" lane="E12_0" startPos="8.27" endPos="18.27"/>
+    <chargingStation id="cs_5" lane="E24_0" startPos="5.65" endPos="15.65"/>
+    <chargingStation id="cs_6" lane="E36_0" startPos="7.40" endPos="17.40"/>
+    <chargingStation id="cs_7" lane="E32_0" startPos="6.67" endPos="16.67"/>
     <!-- Other additionals -->
     <rerouter id="rr_0" edges="697983200" pos="6300.91,1421.42">
         <interval begin="0.00" end="3600.00">
@@ -23,7 +23,7 @@
     <poi id="poi_0" color="red" layer="202.00" lane="605647265_0" pos="330.19"/>
     <poi id="poi_1" color="red" layer="202.00" lane="212712104#3_0" pos="288.93"/>
     <poi id="poi_10" color="red" layer="202.00" lane="369625682#2_0" pos="43.35"/>
-    <poi id="poi_12" color="red" layer="202.00" lane="369625682#1_0" pos="85.24"/>
+    <poi id="poi_12" color="red" layer="202.00" lane="369625682#1_0" pos="29.85"/>
     <poi id="poi_13" color="red" layer="202.00" lane="369628890#10_0" pos="60.15"/>
     <poi id="poi_14" color="red" layer="202.00" lane="697983206#1_0" pos="157.38"/>
     <poi id="poi_15" color="red" layer="202.00" lane="E1_0" pos="73.30"/>
