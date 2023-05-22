@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2023-05-22 21:26:43 by Eclipse SUMO netedit Version 1.16.0
+-->
+
+<additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
+    <!-- StoppingPlaces -->
+    <chargingStation id="cs_0" lane="E3_0" startPos="25.59" endPos="35.59"/>
+    <!-- Other additionals -->
+    <rerouter id="rr_0" edges="E2" pos="38.54,14.15">
+        <interval begin="0.00" end="3600.00">
+            <destProbReroute id="E0" probability="1.00"/>
+        </interval>
+    </rerouter>
+    <rerouter id="rr_1" edges="E0" pos="9.76,67.07">
+        <interval begin="0.00" end="3600.00">
+            <destProbReroute id="E2" probability="1.00"/>
+        </interval>
+    </rerouter>
+</additional>
