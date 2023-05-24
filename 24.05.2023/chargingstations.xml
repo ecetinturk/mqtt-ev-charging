@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2023-05-24 23:23:43 by Eclipse SUMO GUI Version 1.16.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="osm.net.xml"/>
+        <route-files value="final.rou.xml"/>
+        <additional-files value="osm.add.xml"/>
+    </input>
+
+    <output>
+        <battery-output value="Battery.out.xml"/>
+        <battery-output.precision value="4"/>
+        <chargingstations-output value="chargingstations.xml"/>
+        <summary-output value="summary_100.xml"/>
+    </output>
+
+    <battery>
+        <device.battery.probability value="1"/>
+    </battery>
+
+    <traci_server>
+        <remote-port value="64673"/>
+    </traci_server>
+
+</configuration>
