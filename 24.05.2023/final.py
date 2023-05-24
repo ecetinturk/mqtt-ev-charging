@@ -18,6 +18,25 @@ if 'SUMO_HOME' in os.environ:
 else:
     sys.exit("please declare environment variable 'SUMO_HOME'")
 
+
+class Car:
+    def __init__(self, _battery = 0):
+        self.battery = _battery
+
+    # getter method
+    def get_battery(self):
+        return self.battery
+
+    # setter method
+    def set_battery(self, x):
+        self.battery = x
+
+v0 = Car()
+v1 = Car()
+v2 = Car()
+v3 = Car()
+v4 = Car()
+
 broker="127.0.0.1"
 port =1884
 ssl_port=8883 #ssl
@@ -98,7 +117,22 @@ def send_message():
             i = 0
             for client in clients:
                 counter = str(count).rjust(6, "0")
-                msg = "client " + str(i) + " " + counter + "XXXXXX " + message
+                #msg = "client " + str(i) + " " + counter + "XXXXXX " + message
+
+                msg = "deneme"
+
+                if i == 0:
+                    msg = "vehicle v_0: " + str(v0.get_battery())
+                elif i == 1:
+                    msg = "vehicle v_1: " + str(v1.get_battery())
+                elif i == 2:
+                    msg = "vehicle v_2: " + str(v2.get_battery())
+                elif i == 3:
+                    msg = "vehicle v_3: " + str(v3.get_battery())
+                elif i == 4:
+                    msg = "vehicle v_4: " + str(v4.get_battery())
+                else:
+                    msg = "unknown vehicle: " + "NULL"
 
                 client.publish(topic, msg)
                 time.sleep(0.1)
@@ -142,6 +176,12 @@ def run():
     traci.vehicle.setParameter("v_3", "device.battery.actualBatteryCapacity", battery_capacity)
     traci.vehicle.setParameter("v_4", "device.battery.actualBatteryCapacity", battery_capacity)
 
+    v0.battery = battery_capacity
+    v1.battery = battery_capacity
+    v2.battery = battery_capacity
+    v3.battery = battery_capacity
+    v4.battery = battery_capacity
+
     while traci.simulation.getMinExpectedNumber() > 0:
         traci.simulationStep()
 
@@ -160,6 +200,19 @@ def run():
 
             current_charge = float(traci.vehicle.getParameter(car_id, "device.battery.actualBatteryCapacity"))
             current_route = traci.vehicle.getRouteID(car_id)
+
+            if(car_id == "v_0"):
+                v0.battery = current_charge
+            elif(car_id == "v_1"):
+                v1.battery = current_charge
+            elif (car_id == "v_2"):
+                v2.battery = current_charge
+            elif (car_id == "v_3"):
+                v3.battery = current_charge
+            elif (car_id == "v_4"):
+                v4.battery = current_charge
+
+
             # station: cs_0
             if current_lane == "-368620842#10" and current_charge < 350:
                 traci.vehicle.setRouteID(car_id, "r_1")
@@ -247,4 +300,3 @@ if __name__ == "__main__":
     t2.start()
     t1.join()
     t2.join()
-
