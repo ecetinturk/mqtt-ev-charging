@@ -191,35 +191,35 @@ def get_options():
 def find_cs(car_id, cs0, cs1, cs2, cs3, cs4, cs5, cs6, cs7):
     for station in cs0:
         if station == car_id:
-            return  station
+            return "cs_0"
 
     for station in cs1:
         if station == car_id:
-            return station
+            return "cs_1"
 
     for station in cs2:
         if station == car_id:
-            return station
+            return "cs_2"
 
     for station in cs3:
         if station == car_id:
-            return station
+            return "cs_3"
 
     for station in cs4:
         if station == car_id:
-            return station
+            return "cs_4"
 
     for station in cs5:
         if station == car_id:
-            return station
+            return "cs_5"
 
     for station in cs6:
         if station == car_id:
-            return station
+            return "cs_6"
 
     for station in cs7:
         if station == car_id:
-            return station
+            return "cs_7"
 
     return "NULL"
 
