@@ -1,5 +1,6 @@
 # Usage
-'python -m venv env'
+
+`python -m venv env`  #If you already created env, no need to write this.
 
 `.\env\Scripts\activate`
 
