@@ -17,8 +17,8 @@
         }
         
         .container {
-			width: 500px;
-			height: 250px;
+			width: 200px;
+			height: 500px;
             position: relative; /* Konumlandırma için */
             text-align: center;
             background-color: #fff;
@@ -90,7 +90,7 @@
             top: 40px;
             left: 0;
             width: 200px;
-			height: %100;
+			height: 100%;
         }
 		
 		/*Buttons*/
@@ -131,77 +131,242 @@
 		button:active {
 			outline: #9A9A9A;
 		}
-	}
+        .header{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .box
+        {
+           width: 60%;
+           height: auto;
+           margin: 20px;
+           box-sizing: border-box;
+           font-size: 10px;
+
+        }
+        .contain{
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: row;
+           
+           
+        }
+        h3{
+            font-size: 18px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        }
+        .message{
+            font-size: 18px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+        }
+         
+
+	
+    
 		
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.0/socket.io.js"></script>
 </head>
 <body>
+    <div class="header">
+        <h1>MQTT Message From Car</h1>
+    </div>
+    
 
-		<!-- Left arrow button -->
-	<button class="arrow-buttons">
-		<!-- Arrow -->
-		<div class="arrow-button arrow-button--l"></div>
+    <div class="contain">
+        <div class="box">
+            <div style="position: relative;">
+                <div class="container" id="container1">
+                    <div class="strip">
+                        <div class="message"></div>
+                    </div>
+                    <img id="car1" src="../static/car1.png" alt="car1" width="50">
+                    <h3 class="car-id">Car ID: v_0</h3>
+                    <img src="../static/car.png" alt="" width="40">
+                    <h3 class="charge-level">Charge Level: 0</h3>
+                    <img src="../static/route.png" alt="" width="50">
+                    <h3 class="route-info">Route: N/A</h3>
+                    <img src="../static/station.png" alt="" width="50">
+                    <h3 class="charge-station">Charge Station: N/A</h3>
+                </div>
+            </div>
+        </div>
 
-		<!-- Content -->
-		
-	</button>
+        <div class="box">
+            <div style="position: relative;">
+                <div class="container" id="container2">
+                    <div class="strip">
+                        <div class="message"></div>
+                    </div>
+                    <img src="../static/car2.jpg" alt="car2" width="50">
+                    <h3 class="car-id">Car ID: v_1</h3>
+                    <img src="../static/car.png" alt="" width="40">
+                    <h3 class="charge-level">Charge Level: 0</h3>
+                    <img src="../static/route.png" alt="" width="50">
+                    <h3 class="route-info">Route: N/A</h3>
+                    <img src="../static/station.png" alt="" width="50">
+                    <h3 class="charge-station">Charge Station: N/A</h3>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div style="position: relative;">
+                <div class="container" id="container3">
+                    <div class="strip">
+                        <div class="message"></div>
+                    </div>
+                    <img src="../static/car3.png" alt="car3" width="50">
+                    <h3 class="car-id">Car ID: v_2</h3>
+                    <img src="../static/car.png" alt="" width="40">
+                    <h3 class="charge-level">Charge Level: 0</h3>
+                    <img src="../static/route.png" alt="" width="50">
+                    <h3 class="route-info">Route: N/A</h3>
+                    <img src="../static/station.png" alt="" width="50">
+                    <h3 class="charge-station">Charge Station: N/A</h3>
+                </div>
+            </div>
+        </div>
 
-	<div style="position: relative;">
-		<h1 class="h1">MQTT Message From Car</h1>
-		<div class="container" id="container">
-			<div class="strip">
-				<div id="message"></div>
-			</div>
-			<img src="/static/car_new.jpg" alt="Car Image" class="car-image">
-			<div class="h2">
-				<h3>Car ID: v_0</h3>
-				<h3>Edge ID: NULL</h3>
-				<h3>Charging Station: NULL</h3>
-			</div>		
-		</div>
-	</div>
-		
-		<!-- Right arrow button -->
-	<button class="arrow-buttons">
-		<!-- Content -->
-		
+        <div class="box">
+            <div style="position: relative;">
+                <div class="container" id="container4">
+                    <div class="strip">
+                        <div class="message"></div>
+                    </div>
+                    <img src="../static/car4.png" alt="car4" width="50">
+                    <h3 class="car-id">Car ID: v_3</h3>
+                    <img src="../static/car.png" alt="" width="40">
+                    <h3 class="charge-level">Charge Level: 0</h3>
+                    <img src="../static/route.png" alt="" width="50">
+                    <h3 class="route-info">Route: N/A</h3>
+                    <img src="../static/station.png" alt="" width="50">
+                    <h3 class="charge-station">Charge Station: N/A</h3>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div style="position: relative;">
+                <div class="container" id="container5">
+                    <div class="strip">
+                        <div class="message"></div>
+                    </div>
+                    <img src="../static/car5.png" alt="car5" width="50">
+                    <h3 class="car-id">Car ID: v_4</h3>
+                    <img src="../static/car.png" alt="" width="40">
+                    <h3 class="charge-level">Charge Level: 0</h3>
+                    <img src="../static/route.png" alt="" width="50">
+                    <h3 class="route-info">Route: N/A</h3>
+                    <img src="../static/station.png" alt="" width="50">
+                    <h3 class="charge-station">Charge Station: N/A</h3>
+                </div>
+            </div>
+        </div>
+        
 
-		<!-- Arrow -->
-		<div class="arrow-button arrow-button--r"></div>
-	</button>
+
+        <!-- Repeat the above code for other cars (container3, container4, container5) -->
+
+    </div>
 
     <script type="text/javascript">
         var socket = io();
-        var containerElement = document.getElementById('container');
-        var messageElement = document.getElementById('message');
-        var previousMessage = null;
+        var carContainers = document.getElementsByClassName('container');
+        var messages = document.getElementsByClassName('message');
+		var previousChargeLevels = {}; // Store previous charge levels for each car
+        previousChargeLevels['v_0'] = 1000;  // Store previous charge level for car v_0
+        previousChargeLevels['v_1'] = 1000;  // Store previous charge level for car v_1
+        previousChargeLevels['v_2'] = 1000;
+        previousChargeLevels['v_3'] = 1000;
+        previousChargeLevels['v_4'] = 1000;
 
-        // Update the message element and container color based on new MQTT messages
+
+
         socket.on('mqtt_message', function(message) {
-            if (previousMessage !== null) {
-                if (previousMessage > message) {
-                    containerElement.classList.remove('container-green', 'container-orange');
-                    containerElement.classList.add('container-red');
-                    messageElement.innerHTML = 'Discharging: ' + message;
-                } else if (previousMessage < message) {
-                    containerElement.classList.remove('container-red', 'container-orange');
-                    containerElement.classList.add('container-green');
-                    messageElement.innerHTML = 'Charging: ' + message;
-                }
-            } else {
+            const colonIndex = message.indexOf(":");
+            const substringAfterColon = message.substring(colonIndex + 1);
+            const trimmedString = substringAfterColon.trim();
+            const parts = trimmedString.split(" ");
+            var carId = parts[0];
+            var chargeLevel = parts[1];
+            var routeInfo = parts[2];
+            var chargeStation = parts[3];
+            // var chargeLevel = message.substring(message.indexOf(':') + 1, message.indexOf('r')).trim();
+            // var routeInfo = message.substring(message.indexOf('r')).trim();
+
+            // Find the car container based on car ID
+            var carContainer;
+
+            if (carId === 'v_0') {
+                carContainer = document.getElementById('container1');
+            } else if (carId === 'v_1') {
+                carContainer = document.getElementById('container2');
+            }else if (carId === 'v_2') {
+                carContainer = document.getElementById('container3');
+            }
+            else if( carId === 'v_3'){
+                carContainer = document.getElementById('container4');
+            }
+            else if( carId === 'v_4'){
+                carContainer = document.getElementById('container5');
+            }
+            else {
+                carContainer = null;
+            }
+            
+            if (carContainer) {
+                // Find the elements within the car container
+                var messageElement = carContainer.querySelector('.message');
+                var carIdElement = carContainer.querySelector('.car-id');
+                var chargeLevelElement = carContainer.querySelector('.charge-level');
+                var routeInfoElement = carContainer.querySelector('.route-info');
+                var chargeStationElement = carContainer.querySelector('.charge-station');
+
+                // Update the values
                 messageElement.innerHTML = message;
+                carIdElement.innerHTML = 'Car ID: ' + carId;
+                chargeLevelElement.innerHTML = 'Charge Level: ' + chargeLevel;
+                routeInfoElement.innerHTML = 'Route: ' + routeInfo;
+                chargeStationElement.innerHTML = 'Charge Station: ' + chargeStation;
             }
+			var previousChargeLevel = previousChargeLevels[carId];
+    if (previousChargeLevel !== undefined) {
+      if (chargeLevel > previousChargeLevel) {
+        carContainer.classList.remove('container-red', 'container-orange');
+        carContainer.classList.add('container-green');
+        messageElement.innerHTML = 'Charging: ' + chargeLevel;
+      } else if (chargeLevel < previousChargeLevel) {
+        carContainer.classList.remove('container-green', 'container-orange');
+        carContainer.classList.add('container-red');
+        messageElement.innerHTML = 'Discharging: ' + chargeLevel;
+      }
+      else {
+        // Initial state, show the current charge level
+        messageElement.innerHTML = 'Charging: ' + chargeLevel;
+      }
+    }
 
-            // Check if charge equals 100.00
-            if (message === '100.00') {
-                containerElement.classList.remove('container-red', 'container-green');
-                containerElement.classList.add('container-orange');
-                messageElement.innerHTML = 'Full Battery: ' + message;
-            }
+    // Check if charge equals 100.00
+    if (chargeLevel === 100.00) {
+      carContainer.classList.remove('container-red', 'container-green');
+      carContainer.classList.add('container-orange');
+      messageElement.innerHTML = 'Full Battery: ' + chargeLevel;
+    }
 
-            previousMessage = message;
-        });
+    // Store the current charge level as the previous charge level for the car
+    previousChargeLevels[carId] = chargeLevel;
+  }
+        );
+		
+ 
+
+  
+
     </script>
 </body>
 </html>

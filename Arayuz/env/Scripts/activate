@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\volka\Desktop\Github\mqtt-ev-charging\yeni_test\env"
+VIRTUAL_ENV="C:\Users\Engineering Mode\Desktop\BDO_proje\mqtt-ev-charging\Arayuz\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

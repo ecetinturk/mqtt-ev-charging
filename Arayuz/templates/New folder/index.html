@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Charging Station | MQTT Messages</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* background-image: url("static/blue.jpg"); */
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 200px;
+            height: 250px;
+            position: relative;
+            /* Konumlandırma için */
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .strip {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ff7f7f;
+            height: 40px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        #message {
+            font-size: 18px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .container-green .strip {
+            background-color: #7fff7f;
+        }
+
+        .container-red .strip {
+            background-color: #ff7f7f;
+        }
+
+        .container-orange .strip {
+            background-color: #ffa500;
+        }
+
+        h1 {
+            /* Header'ı üste yerleştirecek stil özellikleri */
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            text-align: center;
+            position: relative;
+            /* Konumlandırma için */
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .h2 {
+            position: absolute;
+            left: 250px;
+            text-align: left;
+            border-radius: 10px;
+            padding: 5px;
+            background-color: #f2f2f2;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .car-image {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 200px;
+            height: 100%;
+        }
+
+        /*Buttons*/
+
+        .arrow-button {
+            /* Transparent background */
+            background-color: transparent;
+
+            /* Size */
+            height: 30px;
+            width: 30px;
+        }
+
+        .arrow-button--r {
+            /* Edges */
+            border-right: 1px solid #9A9A9A;
+            border-top: 1px solid #9A9A9A;
+            transform: translateX(-25%) rotate(45deg);
+        }
+
+        .arrow-button--l {
+            /* Edges */
+            border-bottom: 1px solid #9A9A9A;
+            border-left: 1px solid #9A9A9A;
+            transform: translateX(25%) rotate(45deg);
+        }
+
+        button {
+            all: unset;
+            cursor: pointer;
+            margin: 30px;
+        }
+
+        button:hover {
+            outline: black 5px auto;
+        }
+
+        button:active {
+            outline: #9A9A9A;
+        }
+
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+        }
+
+        .box {
+            width: 20%;
+            height: 300px;
+            margin: 20px;
+            box-sizing: border-box;
+            font-size: 10px;
+
+        }
+
+        .contain {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.0/socket.io.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>MQTT Message From Car</h1>
+    </div>
+
+    <div class="contain">
+        <div class="box">
+            <div style="position: relative;">
+                <div class="container" id="container1">
+                    <div class="strip">
+                        <div class="message"></div>
+                    </div>
+                    <h3 class="car-id">Car ID: v_0</h3>
+                    <h3 class="charge-level">Charge Level: 0</h3>
+                    <h3 class="route-info">Route: N/A</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div style="position: relative;">
+                <div class="container" id="container2">
+                    <div class="strip">
+                        <div class="message"></div>
+                    </div>
+                    <h3 class="car-id">Car ID: v_1</h3>
+                    <h3 class="charge-level">Charge Level: 0</h3>
+                    <h3 class="route-info">Route: N/A</h3>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div style="position: relative;">
+                <div class="container" id="container3">
+                    <div class="strip">
+                        <div class="message"></div>
+                    </div>
+                    <h3 class="car-id">Car ID: v_2</h3>
+                    <h3 class="charge-level">Charge Level: 0</h3>
+                    <h3 class="route-info">Route: N/A</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div style="position: relative;">
+                <div class="container" id="container4">
+                    <div class="strip">
+                        <div class="message"></div>
+                    </div>
+                    <h3 class="car-id">Car ID: v_3</h3>
+                    <h3 class="charge-level">Charge Level: 0</h3>
+                    <h3 class="route-info">Route: N/A</h3>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div style="position: relative;">
+                <div class="container" id="container5">
+                    <div class="strip">
+                        <div class="message"></div>
+                    </div>
+                    <h3 class="car-id">Car ID: v_4</h3>
+                    <h3 class="charge-level">Charge Level: 0</h3>
+                    <h3 class="route-info">Route: N/A</h3>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Repeat the above code for other cars (container3, container4, container5) -->
+
+    </div>
+
+    <script type="text/javascript">
+        var socket = io();
+        var carContainers = document.getElementsByClassName('container');
+        var messages = document.getElementsByClassName('message');
+
+        socket.on('mqtt_message', function (message) {
+            var carId = message.substring(message.indexOf('vehicle') + 8, message.indexOf(':')).trim();
+            var chargeLevel = message.substring(message.indexOf(':') + 1, message.indexOf('r')).trim();
+            //var routeInfo = message.substring(message.indexOf('r').trim(), message.contains("basa_don"));
+            var endIndex = message.indexOf("basa_don");
+            if (endIndex !== -1) {
+                var routeInfo = message.substring(message.indexOf('r'), endIndex).trim();
+            } else {
+                var routeInfo = message.substring(message.indexOf('r')).trim();
+            }
+
+
+
+            // Find the car container based on car ID
+            var carContainer;
+
+            if (carId === 'v_0') {
+                carContainer = document.getElementById('container1');
+            } else if (carId === 'v_1') {
+                carContainer = document.getElementById('container2');
+            } else if (carId === 'v_2') {
+                carContainer = document.getElementById('container3');
+            }
+            else if (carId === 'v_3') {
+                carContainer = document.getElementById('container4');
+            }
+            else if (carId === 'v_4') {
+                carContainer = document.getElementById('container5');
+            }
+            else {
+                carContainer = null;
+            }
+
+            if (carContainer) {
+                // Find the elements within the car container
+                var messageElement = carContainer.querySelector('.message');
+                var carIdElement = carContainer.querySelector('.car-id');
+                var chargeLevelElement = carContainer.querySelector('.charge-level');
+                var routeInfoElement = carContainer.querySelector('.route-info');
+
+                // Update the values
+                messageElement.innerHTML = message;
+                carIdElement.innerHTML = 'Car ID: ' + carId;
+                chargeLevelElement.innerHTML = 'Charge Level: ' + chargeLevel;
+                routeInfoElement.innerHTML = 'Route: ' + routeInfo;
+            }
+        });
+    </script>
+</body>
+
+</html>
