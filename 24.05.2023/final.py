@@ -20,22 +20,49 @@ else:
 
 
 class Car:
-    def __init__(self, _battery = 0):
+    def __init__(self, _battery = 0, _route = "NULL", _station = "NULL", _car_id = "NULL"):
         self.battery = _battery
+        self.route = _route
+        self.station = _station
+        self.car_id = _car_id
 
     # getter method
     def get_battery(self):
         return self.battery
 
+    def get_route(self):
+        return self.route
+
+    def get_station(self):
+        return self.station
+
+    def get_car_id(self):
+        return self.car_id
+
     # setter method
     def set_battery(self, x):
         self.battery = x
+
+    def set_route(self, x):
+        self.route = x
+
+    def set_station(self, x):
+        self.station = x
+
+    def set_car_id(self, x):
+        self.car_id = x
 
 v0 = Car()
 v1 = Car()
 v2 = Car()
 v3 = Car()
 v4 = Car()
+
+v0.car_id = "v_0"
+v1.car_id = "v_1"
+v2.car_id = "v_2"
+v3.car_id = "v_3"
+v4.car_id = "v_4"
 
 broker="127.0.0.1"
 port =1884
@@ -122,15 +149,15 @@ def send_message():
                 msg = "deneme"
 
                 if i == 0:
-                    msg = "vehicle v_0: " + str(v0.get_battery())
+                    msg = "vehicle v_0: " + v0.car_id + " " + str(v0.get_battery()) + " " + v0.get_route() + " " + v0.get_station()
                 elif i == 1:
-                    msg = "vehicle v_1: " + str(v1.get_battery())
+                    msg = "vehicle v_1: " + v1.car_id + " " + str(v1.get_battery()) + " " + v1.get_route() + " " + v1.get_station()
                 elif i == 2:
-                    msg = "vehicle v_2: " + str(v2.get_battery())
+                    msg = "vehicle v_2: " + v2.car_id + " " + str(v2.get_battery()) + " " + v2.get_route() + " " + v2.get_station()
                 elif i == 3:
-                    msg = "vehicle v_3: " + str(v3.get_battery())
+                    msg = "vehicle v_3: " + v3.car_id + " " + str(v3.get_battery()) + " " + v3.get_route() + " " + v3.get_station()
                 elif i == 4:
-                    msg = "vehicle v_4: " + str(v4.get_battery())
+                    msg = "vehicle v_4: " + v4.car_id + " " + str(v4.get_battery()) + " " + v4.get_route() + " " + v4.get_station()
                 else:
                     msg = "unknown vehicle: " + "NULL"
 
@@ -160,6 +187,41 @@ def get_options():
                          default=False, help="run the commandline version of sumo")
     options, args = opt_parser.parse_args()
     return options
+
+def find_cs(car_id, cs0, cs1, cs2, cs3, cs4, cs5, cs6, cs7):
+    for station in cs0:
+        if station == car_id:
+            return  station
+
+    for station in cs1:
+        if station == car_id:
+            return station
+
+    for station in cs2:
+        if station == car_id:
+            return station
+
+    for station in cs3:
+        if station == car_id:
+            return station
+
+    for station in cs4:
+        if station == car_id:
+            return station
+
+    for station in cs5:
+        if station == car_id:
+            return station
+
+    for station in cs6:
+        if station == car_id:
+            return station
+
+    for station in cs7:
+        if station == car_id:
+            return station
+
+    return "NULL"
 
 def run():
 
@@ -200,18 +262,37 @@ def run():
 
             current_charge = float(traci.vehicle.getParameter(car_id, "device.battery.actualBatteryCapacity"))
             current_route = traci.vehicle.getRouteID(car_id)
+            cs0 = traci.chargingstation.getVehicleIDs("cs_0")
+            cs4 = traci.chargingstation.getVehicleIDs("cs_4")
+            cs5 = traci.chargingstation.getVehicleIDs("cs_5")
+            cs7 = traci.chargingstation.getVehicleIDs("cs_7")
+            cs6 = traci.chargingstation.getVehicleIDs("cs_6")
+            cs3 = traci.chargingstation.getVehicleIDs("cs_3")
+            cs2 = traci.chargingstation.getVehicleIDs("cs_2")
+            cs1 = traci.chargingstation.getVehicleIDs("cs_1")
+
+            charging_station = find_cs(car_id, cs0, cs1, cs2, cs3, cs4, cs5, cs6, cs7)
 
             if(car_id == "v_0"):
                 v0.battery = current_charge
+                v0.route = current_route
+                v0.station =  charging_station
             elif(car_id == "v_1"):
                 v1.battery = current_charge
+                v1.route = current_route
+                v1.station = charging_station
             elif (car_id == "v_2"):
                 v2.battery = current_charge
+                v2.route = current_route
+                v2.station = charging_station
             elif (car_id == "v_3"):
                 v3.battery = current_charge
+                v3.route = current_route
+                v3.station = charging_station
             elif (car_id == "v_4"):
                 v4.battery = current_charge
-
+                v4.route = current_route
+                v4.station = charging_station
 
             # station: cs_0
             if current_lane == "-368620842#10" and current_charge < 350:
