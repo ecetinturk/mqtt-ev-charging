@@ -1,0 +1,161 @@
+body {
+    font-family: Arial, sans-serif;
+    /* background-image: url("static/blue.jpg"); */
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;			
+}
+
+.container {
+    width: 200px;
+    height: 500px;
+    position: relative; /* Konumlandırma için */
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);			
+}
+
+h1 {
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff7f7f;
+    height: 40px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#message {
+    font-size: 18px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.container-green .strip {
+    background-color: #7fff7f;
+}
+
+.container-red .strip {
+    background-color: #ff7f7f;
+}
+
+.container-orange .strip {
+    background-color: #ffa500;
+}
+
+h1 {
+    /* Header'ı üste yerleştirecek stil özellikleri */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    text-align: center;
+    position: relative; /* Konumlandırma için */            
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.h2{
+    position: absolute;
+    left: 250px;
+    text-align: left;			
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #f2f2f2;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.car-image {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 200px;
+    height: 100%;
+}
+
+/*Buttons*/
+
+.arrow-button {
+    /* Transparent background */
+    background-color: transparent;			
+
+    /* Size */
+    height: 30px;
+    width: 30px;
+}
+
+.arrow-button--r {
+    /* Edges */
+    border-right: 1px solid #9A9A9A;
+    border-top: 1px solid #9A9A9A;
+    transform: translateX(-25%) rotate(45deg);
+}
+
+.arrow-button--l {
+    /* Edges */
+    border-bottom: 1px solid #9A9A9A;
+    border-left: 1px solid #9A9A9A;
+    transform: translateX(25%) rotate(45deg);
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+    margin: 30px;
+}
+
+button:hover {
+    outline: black 5px auto;
+}
+
+button:active {
+    outline: #9A9A9A;
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.box
+{
+   width: 60%;
+   height: auto;
+   margin: 20px;
+   box-sizing: border-box;
+   font-size: 10px;
+
+}
+.contain{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+   
+   
+}
+h3{
+    font-size: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+.message{
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
