@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\Engineering Mode\Desktop\BDO_proje\mqtt-ev-charging\Arayuz\env
+set VIRTUAL_ENV=C:\Users\Engineering Mode\Desktop\BDO_27.05\mqtt-ev-charging\Arayuz\env
 
 if not defined PROMPT set PROMPT=$P$G
 
